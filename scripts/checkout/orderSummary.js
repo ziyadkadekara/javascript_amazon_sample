@@ -8,7 +8,7 @@ import { deliveryOptions } from '../../data/deliveryOptions.js';
 // const deliveryDate = today.add(7, 'days');
 
 // console.log(deliveryDate.format('dddd, MMMM D'));
-export function renderOrdersummary() {
+export function renderOrderSummary() {
   let cartSummaryHTML = '';
 
   cart.forEach((cartItem) => {
