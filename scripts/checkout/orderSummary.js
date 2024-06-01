@@ -7,6 +7,7 @@ import {
   getDeliveryOption,
 } from '../../data/deliveryOptions.js';
 import { renderPaymentSummary } from './paymentSummary.js';
+import { renderCheckoutHeader } from './checkoutHeader.js';
 
 // const today = dayjs();
 // const deliveryDate = today.add(7, 'days');
@@ -115,6 +116,7 @@ export function renderOrderSummary() {
 
       container.remove();
       renderPaymentSummary();
+      renderCheckoutHeader();
     });
   });
 
