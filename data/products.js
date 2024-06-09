@@ -495,4 +495,7 @@ export const products = [
     priceCents: 2400,
     keywords: ['sweaters', 'hoodies', 'apparel', 'mens'],
   },
-];
+].map((productDetails) => {
+  return new Product(productDetails);
+});
+//map fucntion loops throught he array and returns new aray performing the fucntion isde the map
