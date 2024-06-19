@@ -38,13 +38,15 @@ function loadProducts() {
   const xhr = new XMLHttpRequest();
 
   xhr.addEventListener('load', () => {
-    console.log(xhr.response);
+    products = JSON.parse(xhr.response).map((productDetails) => {
+      return new Product(productDetails);
+    });
   });
 
   xhr.open('GET', 'https://supersimplebackend.dev/products');
   xhr.send();
 }
-
+loadProducts();
 /*
 export const products = [
   {
