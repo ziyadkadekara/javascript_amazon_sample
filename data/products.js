@@ -34,13 +34,15 @@ class Product {
 }
 export let products = [];
 
-export function loadProducts() {
+export function loadProducts(fun) {
   const xhr = new XMLHttpRequest();
 
   xhr.addEventListener('load', () => {
     products = JSON.parse(xhr.response).map((productDetails) => {
       return new Product(productDetails);
     });
+
+    fun();
   });
 
   xhr.open('GET', 'https://supersimplebackend.dev/products');
