@@ -32,7 +32,14 @@ class Product {
     return `$${formatCurrency(this.priceCents)}`;
   }
 }
+export let products = [];
 
+function loadProducts() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://supersimplebackend.dev/products');
+}
+
+/*
 export const products = [
   {
     id: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
@@ -506,5 +513,5 @@ export const products = [
   },
 ].map((productDetails) => {
   return new Product(productDetails);
-});
+}); */
 //map fucntion loops throught he array and returns new aray performing the fucntion isde the map
