@@ -11,21 +11,39 @@ import { loadCart } from '../data/cart.js';
 //   renderPaymentSummary();
 //   renderCheckoutHeader();
 // }); callbacking ucntions like thses cause more nesteed callbacks inorder to avoid thast promises are used
-
-new Promise((resolve) => {
-  loadProducts(() => {
-    resolve();
-  });
-})
-  .then(() => {
-    return new Promise((resolve) => {
-      loadCart(() => {
-        resolve();
-      });
+//promise.all runs all the promise at same time and only after competing it it comes outof the fucntion
+Promise.all([
+  new Promise((resolve) => {
+    loadProducts(() => {
+      resolve();
     });
-  })
-  .then(() => {
-    renderOrderSummary();
-    renderPaymentSummary();
-    renderCheckoutHeader();
-  });
+  }),
+  new Promise((resolve) => {
+    loadCart(() => {
+      resolve();
+    });
+  }),
+]).then(() => {
+  renderOrderSummary();
+  renderPaymentSummary();
+  renderCheckoutHeader();
+});
+
+//Old Promise Method
+// new Promise((resolve) => {
+//   loadProducts(() => {
+//     resolve();
+//   });
+// })
+//   .then(() => {
+//     return new Promise((resolve) => {
+//       loadCart(() => {
+//         resolve();
+//       });
+//     });
+//   })
+//   .then(() => {
+//     renderOrderSummary();
+//     renderPaymentSummary();
+//     renderCheckoutHeader();
+//   });
