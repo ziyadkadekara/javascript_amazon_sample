@@ -9,16 +9,22 @@ import { loadCart } from '../data/cart.js';
 //async makes a fucntion return promise
 //await let us wrute assynchronouscode like normal code
 //await - wait to finish the promise
-
+//await help us to avoid .then fucntion
 async function loadPage() {
-  console.log('loadpage');
-  return 'valuetobeinthen';
+  await loadProductsFetch();
+  await new Promise((resolve) => {
+    loadCart(() => {
+      resolve();
+    });
+  });
+  renderOrderSummary();
+  renderPaymentSummary();
+  renderCheckoutHeader();
 }
-loadPage().then((value) => {
-  console.log(value);
+loadPage().then(() => {
   console.log('next step');
 });
-
+/*
 Promise.all([
   loadProductsFetch(),
   new Promise((resolve) => {
@@ -32,7 +38,7 @@ Promise.all([
   renderPaymentSummary();
   renderCheckoutHeader();
 });
-
+*/
 /*
 Promise.all([
   new Promise((resolve) => {
