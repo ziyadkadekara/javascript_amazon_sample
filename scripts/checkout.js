@@ -33,9 +33,7 @@ async function loadPage() {
   renderPaymentSummary();
   renderCheckoutHeader();
 }
-loadPage().then(() => {
-  console.log('next step');
-});
+loadPage();
 
 /*
 Promise.all([
