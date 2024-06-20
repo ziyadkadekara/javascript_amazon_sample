@@ -76,5 +76,6 @@ export function renderPaymentSummary() {
       } catch (error) {
         console.log('error occured,try again');
       }
+      window.location.href = 'orders.html';
     });
 }
