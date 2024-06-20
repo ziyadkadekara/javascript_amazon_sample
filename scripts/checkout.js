@@ -5,7 +5,17 @@ import { loadProducts } from '../data/products.js';
 //import '../data/cart-class.js';
 //import '../data/backend-practice.js';
 
-loadProducts(() => {
+// loadProducts(() => {
+//   renderOrderSummary();
+//   renderPaymentSummary();
+//   renderCheckoutHeader();
+// });
+
+new Promise((resolve) => {
+  loadProducts(() => {
+    resolve();
+  });
+}).then(() => {
   renderOrderSummary();
   renderPaymentSummary();
   renderCheckoutHeader();
