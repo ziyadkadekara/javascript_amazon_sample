@@ -43,6 +43,9 @@ export function loadProductsFetch() {
       products = productsData.map((productDetails) => {
         return new Product(productDetails);
       });
+    })
+    .catch((error) => {
+      console.log('error occured');
     });
 
   return promise;
