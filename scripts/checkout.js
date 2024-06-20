@@ -6,12 +6,6 @@ import { loadCart } from '../data/cart.js';
 //import '../data/cart-class.js';
 //import '../data/backend-practice.js';
 
-// loadProducts(() => {
-//   renderOrderSummary();
-//   renderPaymentSummary();
-//   renderCheckoutHeader();
-// }); callbacking ucntions like thses cause more nesteed callbacks inorder to avoid thast promises are used
-//promise.all runs all the promise at same time and only after competing it it comes outof the fucntion
 Promise.all([
   new Promise((resolve) => {
     loadProducts(() => {
@@ -48,3 +42,10 @@ Promise.all([
 //     renderPaymentSummary();
 //     renderCheckoutHeader();
 //   });
+
+// loadProducts(() => {
+//   renderOrderSummary();
+//   renderPaymentSummary();
+//   renderCheckoutHeader();
+// }); callbacking ucntions like thses cause more nesteed callbacks inorder to avoid thast promises are used
+//promise.all runs all the promise at same time and only after competing it it comes outof the fucntion
