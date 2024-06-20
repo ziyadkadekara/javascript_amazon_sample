@@ -10,13 +10,23 @@ import { loadCart } from '../data/cart.js';
 //await let us wrute assynchronouscode like normal code
 //await - wait to finish the promise
 //await help us to avoid .then fucntion
+
+//try catch can be used in sychrnous xodes
+//throuw helps to give manual error and its catched in catch
+// in try it skips balance code if an error occur in particular line of code
 async function loadPage() {
-  await loadProductsFetch();
-  await new Promise((resolve) => {
-    loadCart(() => {
-      resolve();
+  try {
+    //throw 'error2';
+    await loadProductsFetch();
+    await new Promise((resolve) => {
+      loadCart(() => {
+        resolve();
+      });
     });
-  });
+  } catch (error) {
+    console.log('error occured');
+  }
+
   renderOrderSummary();
   renderPaymentSummary();
   renderCheckoutHeader();
@@ -24,6 +34,7 @@ async function loadPage() {
 loadPage().then(() => {
   console.log('next step');
 });
+
 /*
 Promise.all([
   loadProductsFetch(),
