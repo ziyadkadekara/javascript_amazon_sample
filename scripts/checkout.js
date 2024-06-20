@@ -16,8 +16,16 @@ new Promise((resolve) => {
   loadProducts(() => {
     resolve();
   });
-}).then(() => {
-  renderOrderSummary();
-  renderPaymentSummary();
-  renderCheckoutHeader();
-});
+})
+  .then(() => {
+    return new Promise((resolve) => {
+      loadCart(() => {
+        resolve();
+      });
+    });
+  })
+  .then(() => {
+    renderOrderSummary();
+    renderPaymentSummary();
+    renderCheckoutHeader();
+  });
