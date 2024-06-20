@@ -10,7 +10,7 @@ import { loadCart } from '../data/cart.js';
 //   renderOrderSummary();
 //   renderPaymentSummary();
 //   renderCheckoutHeader();
-// });
+// }); callbacking ucntions like thses cause more nesteed callbacks inorder to avoid thast promises are used
 
 new Promise((resolve) => {
   loadProducts(() => {
