@@ -14,12 +14,14 @@ import { loadCart } from '../data/cart.js';
 //try catch can be used in sychrnous xodes
 //throuw helps to give manual error and its catched in catch
 // in try it skips balance code if an error occur in particular line of code
+//reject helps to create manual error which ccur in futture in prmises
 async function loadPage() {
   try {
     //throw 'error2';
     await loadProductsFetch();
-    await new Promise((resolve) => {
+    await new Promise((resolve, reject) => {
       loadCart(() => {
+        //reject('eerror');
         resolve();
       });
     });
