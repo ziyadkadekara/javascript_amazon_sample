@@ -15,7 +15,7 @@ import { loadCart } from '../data/cart.js';
 Promise.all([
   new Promise((resolve) => {
     loadProducts(() => {
-      resolve();
+      resolve('value1giventothen');
     });
   }),
   new Promise((resolve) => {
@@ -23,7 +23,8 @@ Promise.all([
       resolve();
     });
   }),
-]).then(() => {
+]).then((values) => {
+  console.log(values); //disaplys value1giv.. and undefined sice 2nd resolve is not given
   renderOrderSummary();
   renderPaymentSummary();
   renderCheckoutHeader();
